@@ -1,0 +1,223 @@
+# 🎵 Music Playlist Management System
+
+![Java](https://img.shields.io/badge/Java-Core%20Java-orange)
+![OOP](https://img.shields.io/badge/OOP-Aggregation-blue)
+![Status](https://img.shields.io/badge/Project-Completed-green)
+
+## 📖 Project Description
+
+The Music Playlist Management System is a console-based Java application that simulates the behavior of a digital music playlist.
+
+The system allows users to:
+
+* Add songs to a playlist
+* Store song information
+* Display the playlist queue
+* Shuffle songs randomly
+
+The project demonstrates Object-Oriented Programming concepts such as Aggregation (HAS-A Relationship), Arrays of Objects, Encapsulation, and Randomization Algorithms.
+
+---
+
+## 🎯 Objectives
+
+* Understand Aggregation (HAS-A Relationship)
+* Learn Arrays of Objects
+* Implement Playlist Management
+* Apply Encapsulation
+* Use Fisher-Yates Shuffle Algorithm
+* Practice Enhanced For-Loops
+
+---
+
+## 🛠 Technologies Used
+
+| Technology        | Purpose              |
+| ----------------- | -------------------- |
+| Java              | Programming Language |
+| OOP               | System Design        |
+| Arrays            | Song Storage         |
+| Random Class      | Shuffle Logic        |
+| Enhanced For Loop | Playlist Traversal   |
+
+---
+
+## 🏗 Class Design
+
+### Song Class
+
+Represents a music track.
+
+#### Attributes
+
+* title
+* artist
+
+#### Methods
+
+* getTitle()
+* getArtist()
+
+---
+
+### Playlist Class
+
+Represents a collection of songs.
+
+#### Attributes
+
+* Song[] songs
+* int count
+
+#### Methods
+
+* addSong()
+* displayPlaylist()
+* shufflePlaylist()
+
+---
+
+## 🔄 System Workflow
+
+```text
+Create Songs
+     │
+     ▼
+Add Songs To Playlist
+     │
+     ▼
+Display Playlist
+     │
+     ▼
+Shuffle Playlist
+     │
+     ▼
+Display Shuffled Playlist
+```
+
+---
+
+## 🎵 Sample Playlist
+
+| Song            | Artist           |
+| --------------- | ---------------- |
+| Believer        | Imagine Dragons  |
+| Shape of You    | Ed Sheeran       |
+| Blinding Lights | The Weeknd       |
+| Perfect         | Ed Sheeran       |
+| Closer          | The Chainsmokers |
+
+---
+
+## 📊 Playlist Composition
+
+---
+
+## ▶️ How to Run
+
+### Compile
+
+```bash
+javac MusicPlaylistSystem.java
+```
+
+### Run
+
+```bash
+java MusicPlaylistSystem
+```
+
+---
+
+## 💻 Sample Output
+
+```text
+===== ORIGINAL PLAYLIST =====
+
+1. Believer - Imagine Dragons
+2. Shape of You - Ed Sheeran
+3. Blinding Lights - The Weeknd
+4. Perfect - Ed Sheeran
+5. Closer - The Chainsmokers
+
+Shuffling Playlist...
+
+===== SHUFFLED PLAYLIST =====
+
+1. Perfect - Ed Sheeran
+2. Believer - Imagine Dragons
+3. Closer - The Chainsmokers
+4. Shape of You - Ed Sheeran
+5. Blinding Lights - The Weeknd
+```
+
+(Note: Shuffled order changes every run.)
+
+---
+
+## 🧠 OOP Concepts Used
+
+### Encapsulation
+
+Private fields with public getter methods.
+
+### Aggregation (HAS-A Relationship)
+
+```java
+private Song[] songs;
+```
+
+A Playlist HAS-A collection of Song objects.
+
+### Arrays of Objects
+
+```java
+Song[] songs = new Song[10];
+```
+
+### Randomization
+
+Fisher-Yates Shuffle Algorithm is used to randomly rearrange songs.
+
+### Enhanced For Loop
+
+```java
+for(Song s : songs)
+```
+
+Used for playlist traversal.
+
+---
+
+## 🚀 Future Enhancements
+
+* Search Song by Name
+* Delete Song
+* Play Next Song
+* Repeat Playlist
+* Menu Driven Interface
+* GUI using Java Swing
+* Playlist Saving using File Handling
+* Database Integration
+
+---
+
+## 📚 Learning Outcomes
+
+After completing this project, students will:
+
+* Understand Aggregation in Java
+* Learn Arrays of Objects
+* Implement Randomization Logic
+* Build Modular OOP Applications
+* Manage Collections of Objects Efficiently
+
+---
+
+## 👨‍💻 Author
+
+**Avinash Solanki**
+
+Mini Project – Music Playlist Management System
+
+Built using Core Java and Object-Oriented Programming Concepts.
