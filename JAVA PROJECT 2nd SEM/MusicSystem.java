@@ -11,7 +11,7 @@ class Song {
         this.artist = artist;
     }
 
-    // Getter methods (Encapsulation)
+    // Getter methods ( Encapsulation )
     public String getTitle() { return title; }
     public String getArtist() { return artist; }
 
