@@ -13,7 +13,7 @@ class Song {
 
     // Getter methods ( Encapsulation )
     public String getTitle() { return title; }
-    public String getArtist() { return artist; }
+   public String getTitle() { return artist; }
 
     // Helper method to display details
     public String toString() {
