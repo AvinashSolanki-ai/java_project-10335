@@ -1,93 +1,125 @@
+import java.util.Scanner;
 import java.util.Random;
 
-// Step 1: Define Song Class
+// Song Class
 class Song {
     private String title;
     private String artist;
 
-    // Constructor to initialize song details
+    // Constructor
     public Song(String title, String artist) {
         this.title = title;
         this.artist = artist;
     }
 
-    // Getter methods (Encapsulation)
-    public String getTitle() { return title; }
-    public String getArtist() { return artist; }
+    // Getter Methods
+    public String getTitle() {
+        return title;
+    }
 
-    // Helper method to display details
-    public String toString() {
-        return title + " - " + artist;
+    public String getArtist() {
+        return artist;
     }
 }
 
-// Step 2: Create Playlist Class
+// Playlist Class
 class Playlist {
-    private Song[] songs; // Array of Song objects (Aggregation)
+    private Song[] songs;
     private int count;
 
+    // Constructor
     public Playlist(int size) {
         songs = new Song[size];
         count = 0;
     }
 
-    // Step 3: Implement addSong() Method
+    // Add Song Method
     public void addSong(Song s) {
         if (count < songs.length) {
             songs[count] = s;
             count++;
+            System.out.println("Song Added Successfully!");
         } else {
-            System.out.println("Playlist is full!");
+            System.out.println("Playlist is Full!");
         }
     }
 
-    // Step 4: Implement shufflePlaylist() Method (Fisher-Yates logic)
+    // Display Playlist
+    public void displayPlaylist() {
+        if (count == 0) {
+            System.out.println("Playlist is Empty!");
+            return;
+        }
+
+        System.out.println("\n===== PLAYLIST =====");
+
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". "
+                    + songs[i].getTitle()
+                    + " - "
+                    + songs[i].getArtist());
+        }
+    }
+
+    // Shuffle Playlist using Fisher-Yates Algorithm
     public void shufflePlaylist() {
-        System.out.println("\nShuffling Playlist...");
-        Random rand = new Random();
-        
+        Random random = new Random();
+
         for (int i = count - 1; i > 0; i--) {
-            int j = rand.nextInt(i + 1);
-            
-            // Swap songs[i] with the element at random index j
+            int j = random.nextInt(i + 1);
+
             Song temp = songs[i];
             songs[i] = songs[j];
             songs[j] = temp;
         }
     }
-
-    // Step 5: Display Playlist Queue (Enhanced for-loop)
-    public void displayPlaylist() {
-        int i = 1;
-        for (Song s : songs) {
-            if (s != null) {
-                System.out.println(i + ". " + s.toString());
-                i++;
-            }
-        }
-    }
 }
 
-// Step 6: Test in Main Method
-public class MusicSystem {
+// Main Class
+public class MusicPlaylistSystem {
+
     public static void main(String[] args) {
-        // Create Playlist object with size 3
-        Playlist myPlaylist = new Playlist(3);
 
-        // Add multiple Song objects
-        myPlaylist.addSong(new Song("Believer", "Imagine Dragons"));
-        myPlaylist.addSong(new Song("Shape of You", "Ed Sheeran"));
-        myPlaylist.addSong(new Song("Blinding Lights", "The Weeknd"));
+        Scanner sc = new Scanner(System.in);
 
-        // Display original order
-        System.out.println("Playlist:");
-        myPlaylist.displayPlaylist();
+        System.out.print("Enter Maximum Playlist Size: ");
+        int size = sc.nextInt();
+        sc.nextLine();
 
-        // Shuffle playlist
-        myPlaylist.shufflePlaylist();
+        Playlist playlist = new Playlist(size);
 
-        // Display shuffled order
-        System.out.println("\nShuffled Playlist:");
-        myPlaylist.displayPlaylist();
+        System.out.print("How Many Songs Do You Want To Add? ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        // Taking song details from user
+        for (int i = 1; i <= n; i++) {
+
+            System.out.println("\nEnter Details for Song " + i);
+
+            System.out.print("Song Title: ");
+            String title = sc.nextLine();
+
+            System.out.print("Artist Name: ");
+            String artist = sc.nextLine();
+
+            Song song = new Song(title, artist);
+
+            playlist.addSong(song);
+        }
+
+        // Display Original Playlist
+        System.out.println("\n===== ORIGINAL PLAYLIST =====");
+        playlist.displayPlaylist();
+
+        // Shuffle Playlist
+        System.out.println("\nShuffling Playlist...");
+        playlist.shufflePlaylist();
+
+        // Display Shuffled Playlist
+        System.out.println("\n===== SHUFFLED PLAYLIST =====");
+        playlist.displayPlaylist();
+
+        sc.close();
     }
 }
